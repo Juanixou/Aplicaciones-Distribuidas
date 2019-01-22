@@ -1,4 +1,4 @@
-# PlayURJC
+# URJCGamingNews
 
 ## Descripción
 Página web de videojuegos en la cual se encuentran diversos artículos escritos por los redactores con información sobre las novedades en diversas videoconsolas tales como videojuegos, actualizaciones etc.  
