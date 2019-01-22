@@ -13,12 +13,11 @@ Acceder a los artículos escritos por los diversos redactores que trabajan en la
 Los usuarios registrados tendrán acceso a la edición de artículos, de forma que estos se publiquen de cara al público.
 
 ## Entidades
-**PlayStation**: Contendrá todas las noticias relativas a los juegos y novedades de PlayStation.  
-**Microsoft** : Noticias sobre videojuegos y consolas XBOX.  
-**Nintendo**: Noticias acerca de juegos de la compañía, novedades con sus consolas...  
-**Usuario**: Acceso a los datos de usuarios registrados con privilegios de edición, desde donde se podrá acceder a los artículos escritos.  
-**Eventos**: Recogerá información sobre diversos eventos organizados en relación con el mundo de los videojuegos.  
+**Noticias**: Diferentes noticias en función de la plataforma a la que se orienten, dividida en secciones: Nintendo, PS, Microsoft...  
+**Usuario**: Acceso a los datos de usuarios registrados con privilegios de edición, desde donde se podrá acceder a los artículos escritos. 
 **Notificaciones**: A través de este apartado, cualquier usuario podrá introducir sus datos para enviarle correos electrónicos con los nuevos artículos publicados.  
+**Comentarios**: Los usuarios podrán hacer conmentarios en cualquiera de los artículos publicados.  
+
 ## Integrantes del equipo
 |Nombre     |Apellidos       |Correo                    |Cuenta Github
 |-----------|----------------|--------------------------|---------------|
