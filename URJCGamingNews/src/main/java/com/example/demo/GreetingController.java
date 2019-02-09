@@ -18,10 +18,10 @@ public class GreetingController {
 		
 		db.SacarArticulo();
 
-		 model.addAttribute("name", "URJC Gaming News");
-		 model.addAttribute("resources", "/resources");
+		model.addAttribute("name", "URJC Gaming News");
+		model.addAttribute("resources", "/resources");
 
-		 return "index";
+		return "index";
 	 }
 
 }
