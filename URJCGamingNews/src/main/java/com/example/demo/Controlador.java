@@ -3,6 +3,8 @@ package com.example.demo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Controlador {
@@ -10,10 +12,7 @@ public class Controlador {
 	@GetMapping("/noticia")
 	public String noticia(Model model) {
 
-		
 		ClaseGuardarTextoNoSirveParaNada texto = new ClaseGuardarTextoNoSirveParaNada();
-		
-		
 		
 		/*
 		 * Noticia
@@ -35,6 +34,9 @@ public class Controlador {
 		return "noticia";
 	}
 	
+	/*
+	 * Devuelve la pagina de inicio
+	 */
 	@GetMapping("/inicio")
 	public String inicio(Model model) {
 		
@@ -43,5 +45,5 @@ public class Controlador {
 		
 		return "inicio";
 	}
-
+	
 }
