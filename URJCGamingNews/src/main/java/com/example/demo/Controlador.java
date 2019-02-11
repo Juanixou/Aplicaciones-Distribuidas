@@ -46,4 +46,41 @@ public class Controlador {
 		return "inicio";
 	}
 	
+	/*
+	 * Devuelve la pagina de las categorias
+	 */
+	@GetMapping("/categorias")
+	public String categorias (Model model) {
+		
+		return "categorias";
+	}
+	
+	
+	/*
+	 * Devuelve la pagina de las categoria en concreto
+	 */
+	@GetMapping("/categoria")
+	public String categoria (Model model, @RequestParam String categoria) {
+		
+		if(categoria.equals("sony")) {//Categoria Sony
+			model.addAttribute("ruta_fondo", "('../images/fondos/sony.png')");
+			model.addAttribute("categoria", "Sony");
+		}
+		else if (categoria.equals("xbox")) {//Categoria Xbox
+			model.addAttribute("ruta_fondo", "('../images/fondos/xbox.png')");
+			model.addAttribute("categoria", "Xbox");
+		}
+		else if (categoria.equals("nintendo")) {//Categoria Nintendo
+			model.addAttribute("ruta_fondo", "('../images/fondos/nintendo.png')");
+			model.addAttribute("categoria", "Nintendo");
+		}
+		else if (categoria.equals("pc")) {//Categoria PC
+			model.addAttribute("ruta_fondo", "('../images/fondos/pc.png')");
+			model.addAttribute("categoria", "Pc");
+		}
+		
+		return "categoria";
+	}
+	
+	
 }
