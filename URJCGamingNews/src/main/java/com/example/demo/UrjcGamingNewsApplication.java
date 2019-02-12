@@ -20,7 +20,7 @@ public class UrjcGamingNewsApplication {
 	
 	@PostConstruct
 	public void insertar() {
-		db.InsertarArticulo();
+		//db.InsertarArticulo();
 	}
 
 }
