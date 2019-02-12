@@ -47,17 +47,6 @@ public class Controlador {
 		return "noticia";
 	}
 	
-	/*
-	 * Devuelve la pagina de inicio
-	 */
-	@GetMapping("/inicio")
-	public String inicio(Model model) {
-		
-		model.addAttribute("name", "URJC Gaming News");
-		model.addAttribute("resources", "/resources");
-		
-		return "inicio";
-	}
 	
 	/*
 	 * Devuelve la pagina de las categorias
@@ -94,6 +83,39 @@ public class Controlador {
 		
 		return "categoria";
 	}
+	
+	/*
+	 * Devuelve la pagina de los distintos tipos de eventos
+	 */
+	@GetMapping("/eventos")
+	public String eventos (Model model) {
+		
+		return "eventos";
+	}
+	
+	
+	/*
+	 * Devuelve la pagina de los eventos en concreto
+	 */
+	@GetMapping("/evento")
+	public String evento (Model model, @RequestParam String evento) {
+		
+		if(evento.equals("videojuegos")) {//Evento de videojuegos
+			model.addAttribute("ruta_fondo", "('../images/fondos/eventos/fondo_videojuegos.jpg')");
+			model.addAttribute("evento", "Videojuegos");
+		}
+		else if (evento.equals("conferencias")) {//Evento de conferencias
+			model.addAttribute("ruta_fondo", "('../images/fondos/eventos/fondo_conferencias.jpg')");
+			model.addAttribute("evento", "Conferencias");
+		}
+		else if (evento.equals("esports")) {//Evento de E-Sports
+			model.addAttribute("ruta_fondo", "('../images/fondos/eventos/fondo_esports.jpg')");
+			model.addAttribute("evento", "E-Sports");
+		}
+		
+		return "evento";
+	}
+	
 	
 	
 }
