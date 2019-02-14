@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class Controlador {
+public class ControladorNoticias {
 
 	@Autowired
 	private ArticuloRepository repositorioArticulos;
@@ -21,7 +21,7 @@ public class Controlador {
 	public String noticia(Model model, @RequestParam String title) {
 
 		String nuevoTitulo = title.replace('-',' ');
-		List<Articulo> listaArticulos = repositorioArticulos.findByTitulo(nuevoTitulo.toUpperCase());
+		List<Articulo> listaArticulos = repositorioArticulos.findByTitulo(nuevoTitulo);
 		Articulo articulo = listaArticulos.get(0);
 		List<Comentario> comentarios = articulo.getComments();
 			
@@ -38,11 +38,7 @@ public class Controlador {
 		 * Comentarios
 		 */
 		
-		model.addAttribute("listaComentarios",comentarios.toString());
-		model.addAttribute("usuario_comentario", "USUARIO DEL COMENTARIO");//Usuario que hizo el comentario
-		model.addAttribute("fecha_comentario", "09/02/2019");//Fecha del comentario
-		model.addAttribute("texto_comentario", "Polla");//Texto del comentario
-		
+		model.addAttribute("listaComentarios",comentarios);
 		
 		return "noticia";
 	}
