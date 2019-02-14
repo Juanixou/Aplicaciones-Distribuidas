@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class Articulo {
 		this.imagen = img;
 		this.fecha = fecha;
 		this.autor = autor;
+
 	}
 
 	public long getId() {

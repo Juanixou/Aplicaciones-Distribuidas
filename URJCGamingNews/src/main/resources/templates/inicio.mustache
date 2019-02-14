@@ -67,33 +67,18 @@ Licence URI: http://www.os-templates.com/template-terms
     <div class="slideshow-container">
 
       <!-- Full-width images with number and caption text -->
+      {{#noticiasSlider}}
       <div class="mySlides fade">
-        <img src="{{imageSlider1}}" class="imgPortada">
+        <img src="images/{{imagen}}" class="imgPortada">
         <article>
-          <h3 class="heading">{{nameSlider1}}</h3>
-          <p>{{textSlider1}}</p>
+          <a href = "noticia?title={{titulo}}" style="text-decoration:none; color:inherit">
+          		<h3 class="heading">{{titulo}}</h3>
+          </a>	
+          <p>{{descripcion}}</p>
         </article>
         
       </div>
-
-      <div class="mySlides fade">
-        <img src="{{imageSlider2}}" class="imgPortada">
-        <article>
-        <a href = "noticia?title=Red-Dead-Redemption-2">
-          <h3 class="heading">{{nameSlider2}}</h3>
-        </a>
-          <p>{{textSlider2}}</p>
-
-        </article>
-      </div>
-
-      <div class="mySlides fade">
-        <img src="{{imageSlider3}}" class="imgPortada">
-        <article>
-          <h3 class="heading">{{nameSlider3}}</h3>
-          <p>{{textSlider3}}</p>
-        </article>
-      </div>
+      {{/noticiasSlider}}
 
       <!-- Next and previous buttons -->
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -121,30 +106,20 @@ Licence URI: http://www.os-templates.com/template-terms
         <div class = "content one_half first">
 
           <h3>NOTICIAS FRESCAS</h3>
+			{{#listaTotalArticulos}}
+          		<div class="one_half first">
+            		<img class="inspace-10 borderedbox" src="images/{{imagen}}" alt="">
+          		</div>
 
-          <div class="one_half first">
-            <img class="inspace-10 borderedbox" src="{{noticiasFrescasImage1}}" alt="">
-          </div>
+          		<div class="one_half">
+          			<a href = "noticia?title={{titulo}}" style="text-decoration:none; color:inherit">
+	            		<p>{{titulo}}</p>
+	            	</a>
+	            	<p>{{descripcion}}</p>
 
-          <div class="one_half">
-            <p>{{noticiasFrescasName1}}</p>
-          </div>
-
-          <div class="one_half first">
-            <img class="inspace-10 borderedbox" src="{{noticiasFrescasImage2}}" alt="">
-          </div>
-
-          <div class="one_half">
-            <p>{{noticiasFrescasName2}}</p>
-          </div>
-
-          <div class="one_half first">
-            <img class="inspace-10 borderedbox" src="{{noticiasFrescasImage3}}" alt="">
-          </div>
-
-          <div class="one_half">
-            <p>{{noticiasFrescasName3}}</p>
-          </div>
+          		</div>
+          		
+			{{/listaTotalArticulos}}
 
         </div>
         <div class="one_quarter">
