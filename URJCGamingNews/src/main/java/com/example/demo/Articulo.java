@@ -3,7 +3,9 @@ package com.example.demo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -30,6 +33,9 @@ public class Articulo {
 
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Comentario> comments = new ArrayList<Comentario>();
+	
+	@OneToMany(mappedBy = "categoria")
+    private Set<ArticuloCategoria> employerDeliveryAgent = new HashSet<ArticuloCategoria>();
 
 	protected Articulo() {}
 	
