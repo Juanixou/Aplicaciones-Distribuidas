@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,32 @@ public class ControladorNoticias {
 		model.addAttribute("listaComentarios",comentarios);
 		
 		return "noticia";
+	}
+	
+	
+	
+	
+
+	@PostMapping("/checkComentario")
+	public String checkNew(Model model, @RequestParam String uname, @RequestParam String email,
+			@RequestParam String textoComentario, @RequestParam String titulo) {
+
+		model.addAttribute("uname", uname);
+		model.addAttribute("email", email);
+		model.addAttribute("titulo", titulo);
+		
+
+		model.addAttribute("textoComentario", textoComentario);
+		
+		/*
+		LocalDate localDate = LocalDate.now();
+		 
+		Articulo articulo = new Articulo(titulo,descripcion,textoNoticia,
+					"RDR2.png",localDate.toString(),uname);
+			
+		artic.save(articulo);
+*/
+		return "checkComentario";
 	}
 	
 	

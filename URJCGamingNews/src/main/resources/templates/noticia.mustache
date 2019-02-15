@@ -186,30 +186,35 @@ Licence URI: http://www.os-templates.com/template-terms
             </article>
           </li>
         </ul>
-        <h2>Escribe un comentario</h2>
-        <form action="#" method="post">
-          <div class="one_third first">
+        <h2>Escribe un comentario </h2>
+        <form action="http://127.0.0.1:8080/checkComentario" method="post">
+
+
+            <div class="one_third first">
             <label for="name">Nombre<span>*</span></label>
-            <input type="text" name="name" id="name" value="" size="22" required>
+            <input type="text" name="uname" id="uname" value="" size="22" required>
           </div>
           <div class="one_third">
             <label for="email">E-mail<span>*</span></label>
             <input type="email" name="email" id="email" value="" size="22" required>
           </div>
-          <!--
-          <div class="one_third">
-            <label for="url">Website</label>
-            <input type="url" name="url" id="url" value="" size="22">
-          </div>
-          -->
+
           <div class="block clear">
             <label for="comment">Tu comentario</label>
-            <textarea name="comment" id="comment" cols="25" rows="10"></textarea>
+            <textarea name="textoComentario" id="textoComentario" cols="25" rows="10"></textarea>
+
           </div>
-          <div>
+
+
+            <input type="hidden" id="titulo" name="titulo" value="{{titulo_noticia}}">
+
+
+            <div>
             <input type="submit" name="submit" value="Enviar comentario">
             &nbsp;
             <input type="reset" name="reset" value="Borrar campos">
+
+
           </div>
         </form>
       </div>
