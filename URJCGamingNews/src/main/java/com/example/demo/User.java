@@ -13,12 +13,14 @@ public class User {
 	
 	private String usuario;
 	private String password;
+	private String email;
 	
 	protected User() {}
 	
-	public User(String usuario, String password) {
+	public User(String usuario, String password, String email) {
 		this.usuario = usuario;
 		this.password = password;
+		this.setEmail(email);
 	}
 
 	public long getId() {
@@ -48,6 +50,14 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", usuario=" + usuario + ", password=" + password + "]";
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

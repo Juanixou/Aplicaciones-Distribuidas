@@ -41,7 +41,7 @@ public class controladorEscribirNoticia {
 		LocalDate localDate = LocalDate.now();
 		 
 		Articulo articulo = new Articulo(titulo,descripcion,textoNoticia,
-					"RDR2.png",localDate.toString(),uname);
+					"placeholder.jpg",localDate.toString(),uname);
 			
 		artic.save(articulo);
 
