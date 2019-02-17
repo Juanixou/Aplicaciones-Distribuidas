@@ -59,14 +59,17 @@ public class ControladorNoticias {
 
 		model.addAttribute("textoComentario", textoComentario);
 		
-		/*
-		LocalDate localDate = LocalDate.now();
-		 
-		Articulo articulo = new Articulo(titulo,descripcion,textoNoticia,
-					"RDR2.png",localDate.toString(),uname);
-			
-		artic.save(articulo);
-*/
+		 LocalDate localDate = LocalDate.now();
+
+		String nuevoTitulo = titulo.replace('-',' ');
+		List<Articulo> listaArticulos = repositorioArticulos.findByTitulo(nuevoTitulo);
+		Articulo articulo = listaArticulos.get(0);
+		
+		articulo.getComments().add(new Comentario(uname,textoComentario,
+		 		localDate.toString()));
+		repositorioArticulos.save(articulo);
+		
+
 		return "checkComentario";
 	}
 	
