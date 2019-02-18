@@ -16,6 +16,7 @@ public class InicioController {
 	private DatabaseController db;
 	@Autowired
 	private ArticuloRepository repositorioArticulos;
+
 	
 	@GetMapping("")
 	 public String greeting(Model model) {

@@ -14,19 +14,43 @@ import javax.persistence.MapsId;
 public class ArticuloCategoria {
 
 	@EmbeddedId
-	private ArticuloCategoriaPK id;
+	private ArticuloCategoriaPK id = new ArticuloCategoriaPK();
 	
 	@ManyToOne
-	@MapsId("id_articulo") //This is the name of attr in EmployerDeliveryAgentPK class
-	@JoinColumn(name = "id_articulo")
+	@MapsId("id_articulo") //This is the name of attr in ArticuloCategoriaPK class
+	@JoinColumn(name = "id_articulo",insertable = false)
 	private Articulo articulo;
 	
 	@ManyToOne
-	@MapsId("id_categoria") //This is the name of attr in EmployerDeliveryAgentPK class
-	@JoinColumn(name = "id_categoria")
+	@MapsId("id_categoria") //This is the name of attr in ArticuloCategoriaPK class
+	@JoinColumn(name = "id_categoria",insertable = false)
 	private Categoria categoria;
 	
 	protected ArticuloCategoria() {}
+
+	public ArticuloCategoriaPK getId() {
+		return id;
+	}
+
+	public void setId(ArticuloCategoriaPK id) {
+		this.id = id;
+	}
+
+	public Articulo getArticulo() {
+		return articulo;
+	}
+
+	public void setArticulo(Articulo articulo) {
+		this.articulo = articulo;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 	
 }

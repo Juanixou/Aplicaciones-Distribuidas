@@ -15,6 +15,9 @@ public class DatabaseController{
 	 @Autowired
 	 private  ComentarioRepository coment;
 	 
+		@Autowired
+		private CategoriaRepository repositorioCategorias;
+	 
 	 public void InsertarArticulo(){
 
 		 LocalDate localDate = LocalDate.now();
@@ -72,6 +75,17 @@ public class DatabaseController{
 			 		+ " El juego es una delicia para saborearlo tranquilamente, cada juego tiene un ritmo. El primer RDR era as",
 			 		localDate.toString()));
 		 artic.save(articulo3);
+		 
+		 Categoria categoria1 = new Categoria("PC");
+		 Categoria categoria2 = new Categoria("PlayStation");
+		 Categoria categoria3 = new Categoria("XBOX");
+		 Categoria categoria4 = new Categoria("Nintendo");
+		 
+		 
+		 repositorioCategorias.save(categoria1);
+		 repositorioCategorias.save(categoria2);
+		 repositorioCategorias.save(categoria3);
+		 repositorioCategorias.save(categoria4);
 		 
 	 }
 	 
