@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,12 @@ public class ControladorNoticias {
 
 	@Autowired
 	private ArticuloRepository repositorioArticulos;
+	
+	@Autowired
+	private ArticuloCategoriaRepository repositorioArticuloCategoria;
+	
+	@Autowired
+	private CategoriaRepository repositorioCategoria;
 	
 	@GetMapping("/noticia")
 	public String noticia(Model model, @RequestParam String title) {
@@ -88,24 +96,36 @@ public class ControladorNoticias {
 	 * Devuelve la pagina de las categoria en concreto
 	 */
 	@GetMapping("/categoria")
-	public String categoria (Model model, @RequestParam String categoria) {
+	public String categoria (Model model, @RequestParam String[] categoria) {
+		String categ = Arrays.toString(categoria);
+		categ = categ.substring(1,categ.length()-1);
+		System.out.println(categ);
+		List<Categoria> listCat = repositorioCategoria.findByCategoria(categ);
 		
-		if(categoria.equals("sony")) {//Categoria Sony
+		List<ArticuloCategoria> listaArticuloCategoria = repositorioArticuloCategoria.findByCategoria(listCat.get(0));
+		List<Articulo> listaArticulos = new ArrayList<Articulo>();
+		
+		for(int i = 0; i<listaArticuloCategoria.size();i++) {
+			listaArticulos.add(listaArticuloCategoria.get(i).getArticulo());
+		}
+		
+		if(categ.equals("PlayStation")) {//Categoria Sony
 			model.addAttribute("ruta_fondo", "('../images/fondos/sony.png')");
-			model.addAttribute("categoria", "Sony");
+			model.addAttribute("categoria", "PlayStation");
 		}
-		else if (categoria.equals("xbox")) {//Categoria Xbox
+		else if (categ.equals("XBOX")) {//Categoria Xbox
 			model.addAttribute("ruta_fondo", "('../images/fondos/xbox.png')");
-			model.addAttribute("categoria", "Xbox");
+			model.addAttribute("categoria", "XBOX");
 		}
-		else if (categoria.equals("nintendo")) {//Categoria Nintendo
+		else if (categ.equals("Nintendo")) {//Categoria Nintendo
 			model.addAttribute("ruta_fondo", "('../images/fondos/nintendo.png')");
 			model.addAttribute("categoria", "Nintendo");
 		}
-		else if (categoria.equals("pc")) {//Categoria PC
+		else if (categ.equals("PC")) {//Categoria PC
 			model.addAttribute("ruta_fondo", "('../images/fondos/pc.png')");
-			model.addAttribute("categoria", "Pc");
+			model.addAttribute("categoria", "PC");
 		}
+		model.addAttribute("listaArticulos",listaArticulos);
 		
 		return "categoria";
 	}

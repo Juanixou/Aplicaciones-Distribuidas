@@ -17,6 +17,9 @@ public class DatabaseController{
 	 
 		@Autowired
 		private CategoriaRepository repositorioCategorias;
+		
+	@Autowired
+	private ArticuloCategoriaRepository repositorioArticuloCategoria;
 	 
 	 public void InsertarArticulo(){
 
@@ -80,12 +83,25 @@ public class DatabaseController{
 		 Categoria categoria2 = new Categoria("PlayStation");
 		 Categoria categoria3 = new Categoria("XBOX");
 		 Categoria categoria4 = new Categoria("Nintendo");
-		 
-		 
 		 repositorioCategorias.save(categoria1);
 		 repositorioCategorias.save(categoria2);
 		 repositorioCategorias.save(categoria3);
 		 repositorioCategorias.save(categoria4);
+		 
+		 ArticuloCategoria artCat = new ArticuloCategoria();
+		artCat.setArticulo(articulo);
+		artCat.setCategoria(categoria2);
+		repositorioArticuloCategoria.save(artCat);
+		artCat = new ArticuloCategoria();
+		artCat.setArticulo(articulo2);
+		artCat.setCategoria(categoria2);
+		repositorioArticuloCategoria.save(artCat);
+		artCat = new ArticuloCategoria();
+		artCat.setArticulo(articulo3);
+		artCat.setCategoria(categoria2);
+		repositorioArticuloCategoria.save(artCat);
+		
+
 		 
 	 }
 	 

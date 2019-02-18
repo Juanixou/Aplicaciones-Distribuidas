@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ArticuloCategoriaRepository extends JpaRepository<ArticuloCategoria, Long>{
+public interface ArticuloCategoriaRepository extends JpaRepository<ArticuloCategoria, ArticuloCategoriaPK>{
 
-	
+	List<ArticuloCategoria> findByCategoria(Categoria categoria);
 	
 }

@@ -108,7 +108,27 @@ Licence URI: http://www.os-templates.com/template-terms
       <div id="gallery">
         <figure>
           <header class="heading">Noticias de: {{categoria}} por fecha de publicación</header>
+		  {{#listaArticulos}}
           <ul class="nospace clear">
+
+                    		<div class="one_half first">
+            		<img class="inspace-10 borderedbox" src="images/{{imagen}}" alt="">
+          		</div>
+
+          		<div class="one_half">
+          			<a href = "noticia?title={{titulo}}" style="text-decoration:none; color:inherit">
+	            		<p>{{titulo}}</p>
+	            	</a>
+	            	<p>{{descripcion}}</p>
+
+          		</div>
+          	<!--
+            <li class="one_quarter first"><a href="noticia?title={{titulo}}"><img src="../images/demo/gallery/{{imagen}}" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/{{imagen}}" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/{{imagen}}" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/{{imagen}}" alt=""></a></li>
+            -->
+  			<!--          
             <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
@@ -117,11 +137,9 @@ Licence URI: http://www.os-templates.com/template-terms
             <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
+            -->
           </ul>
+		  {{/listaArticulos}}
           <!--<figcaption>Gallery Description Goes Here</figcaption>-->
         </figure>
       </div>
