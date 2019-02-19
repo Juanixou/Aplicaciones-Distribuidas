@@ -181,3 +181,10 @@ El diagrama de clases de nuestra aplicación es el siguiente:
   
 
 ![DiagramaClases](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/diagramaDeClases.PNG?raw=true)
+![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/diagramaDeNavegacion.PNG?raw=true)  
+
+## Diagrama de Base de Datos 
+
+El diagrama de Base de Datos corresponiente a las clases creadas es el siguiente: 
+
+![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/Diagrama_BD.PNG?raw=true)
