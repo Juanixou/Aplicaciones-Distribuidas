@@ -12,7 +12,7 @@ Los usuarios registrados tendrán acceso a la edición de artículos, de forma q
 
 ## Entidades
 **Noticias**: Diferentes noticias en función de la plataforma a la que se orienten, dividida en secciones: Nintendo, PS, Microsoft...  
-**Usuario**: Acceso a los datos de usuarios registrados con privilegios de edición, desde donde se podrá acceder a los artículos escritos. 
+**Usuario**: Acceso a los datos de usuarios registrados con privilegios de edición, desde donde se podrá acceder a los artículos escritos.  
 **Notificaciones**: A través de este apartado, cualquier usuario podrá introducir sus datos para enviarle correos electrónicos con los nuevos artículos publicados.  
 **Comentarios**: Los usuarios podrán hacer conmentarios en cualquiera de los artículos publicados.  
 
@@ -89,4 +89,10 @@ Se han implementado los siguientes formularios para permitir hacer login en la p
 
 El diagrama de navegación de nuestra aplicación es el siguiente: 
 
-![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/diagramaDeNavegacion.PNG?raw=true)
+![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/diagramaDeNavegacion.PNG?raw=true)  
+
+## Diagrama de Base de Datos 
+
+El diagrama de Base de Datos corresponiente a las clases creadas es el siguiente: 
+
+![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/Diagrama_BD.PNG?raw=true)
