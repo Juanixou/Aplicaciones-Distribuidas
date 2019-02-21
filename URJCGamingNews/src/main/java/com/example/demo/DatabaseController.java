@@ -83,10 +83,17 @@ public class DatabaseController{
 		 Categoria categoria2 = new Categoria("PlayStation");
 		 Categoria categoria3 = new Categoria("XBOX");
 		 Categoria categoria4 = new Categoria("Nintendo");
+		 Categoria categoria5 = new Categoria("videojuegos");
+		 Categoria categoria6 = new Categoria("conferencias");
+		 Categoria categoria7 = new Categoria("esports");
 		 repositorioCategorias.save(categoria1);
 		 repositorioCategorias.save(categoria2);
 		 repositorioCategorias.save(categoria3);
 		 repositorioCategorias.save(categoria4);
+		 repositorioCategorias.save(categoria5);
+		 repositorioCategorias.save(categoria6);
+		 repositorioCategorias.save(categoria7);
+
 		 
 		 ArticuloCategoria artCat = new ArticuloCategoria();
 		artCat.setArticulo(articulo);
