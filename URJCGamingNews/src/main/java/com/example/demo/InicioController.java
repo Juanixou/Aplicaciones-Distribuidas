@@ -1,5 +1,12 @@
 package com.example.demo;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +42,37 @@ public class InicioController {
 
 		return "inicio";
 	 }
-
+	
+	@GetMapping("/email")
+	public String enviarEmail(Model model) {
+		
+		
+		int numeroPuerto = 7777;
+		String email = "juanpe1997@hotmail.com";
+		
+		try {
+			Socket socket = new Socket(InetAddress.getLocalHost(),numeroPuerto);
+			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			
+			PrintWriter pw = new PrintWriter(socket.getOutputStream(),true);
+			
+			pw.println(email);
+			
+			br.close();
+			pw.close();
+			socket.close();
+			
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		return "email";
+	 }
 }
