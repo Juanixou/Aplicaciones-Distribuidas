@@ -21,6 +21,7 @@ public class ControladorNewsletter {
 	 */
 	@GetMapping("/newsletter")
 	public String login(Model model) {
+		
 		return "newsletter";
 	}
 	
@@ -29,14 +30,13 @@ public class ControladorNewsletter {
 		
 		
 		List<Newsletter> listaEmail = repositorioNewsletter.findByEmail(umail);
-		Newsletter mail = listaEmail.get(0);
-		
-		if(!mail.equals("")) {
+		if(listaEmail.isEmpty()) {
 			repositorioNewsletter.save(new Newsletter(umail));
 			return "checkNewsletter";
 		}else {
 			return "inicio";
 		}
+
 	}
 	
 	
