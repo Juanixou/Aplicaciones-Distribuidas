@@ -1,0 +1,38 @@
+conectar ssh: 
+(Si usas virtualbox ve configuracion->red utiliza NAT y en reenvío de puertos añade una regla de puertos 1337 a 1337)
+https://thishosting.rocks/how-to-enable-ssh-on-ubuntu/
+
+sudo apt-get install openssh-server -y
+sudo apt-get install nano -y
+sudo nano /etc/ssh/sshd_config
+change port 22 to port 1337
+sudo ufw allow 1337
+sudo service ssh restart
+
+
+Una vez configurado podemos conectarnos a ssh con 
+ssh username@ip -p1337
+por defecto: ssh username@127.0.0.1 -p1337
+
+
+
+sudo add-apt-repository ppa:webupd8team/java -y
+sudo apt update
+sudo apt install oracle-java8-installer -y
+
+
+sudo apt-get install mysql-server
+
+sudo mysql
+create database db_cooking_with_java; 
+create user 'cookingWithJavaDefaultUser'@'%' identified by 'cookingWithJavaDefaultPass'; 
+grant all on db_cooking_with_java.* to 'cookingWithJavaDefaultUser'@'%';
+exit;
+
+create user 'root'@'%' identified by 'root'; 
+grant all on local.* to 'root'@'%';
+
+scp -P 1337 ruta/archivo.txt thejavacookers@127.0.0.1:/home/thejavacookers
+abrir puerto 8080
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
