@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,15 @@ public class InicioController {
 		
 		
 		int numeroPuerto = 7777;
-		String email = "juanpe1997@hotmail.com";
+		String linkNoticia = "www.google.es";
+		String email1 = "juanpe1997@hotmail.com";
+		String email2 = "juanpe1997@gmail.com";
+		
+				
+		List<String> listaCorreos = new ArrayList<String>();
+		
+		listaCorreos.add(email1);
+		listaCorreos.add(email2);
 		
 		try {
 			Socket socket = new Socket(InetAddress.getLocalHost(),numeroPuerto);
@@ -56,7 +65,15 @@ public class InicioController {
 			
 			PrintWriter pw = new PrintWriter(socket.getOutputStream(),true);
 			
-			pw.println(email);
+			for (int i = 0; i<=listaCorreos.size();i++) {
+				
+				if (i == 0)
+					pw.println(linkNoticia);
+				else
+					pw.println(listaCorreos.get(i-1));
+			}
+			
+			
 			
 			br.close();
 			pw.close();
@@ -67,11 +84,6 @@ public class InicioController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
 		
 		return "email";
 	 }
