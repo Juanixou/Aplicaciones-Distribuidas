@@ -7,5 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface NewsletterRepository extends JpaRepository<Newsletter, Long>{
 
 	List<Newsletter> findByEmail(String email);
+	List<Newsletter> findAllByOrderByIdAsc();
 	
 }

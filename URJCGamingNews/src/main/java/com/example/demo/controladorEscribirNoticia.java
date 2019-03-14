@@ -28,6 +28,9 @@ public class controladorEscribirNoticia {
 
 	@Autowired
 	private CategoriaRepository repositorioCategoria;
+	
+	@Autowired
+	private NewsletterRepository repositorioNewsletter;
 
 	@GetMapping("/escribirNoticia")
 	public String escribirNoticia(Model mod3el) {
@@ -75,17 +78,14 @@ public class controladorEscribirNoticia {
 		// Enviar e-mails a todos los subscritos de que se ha subido una nueva noticia
 
 		String linkNoticia = "https://127.0.0.1:8443/noticia?title=" + titulo.replace(' ', '-');
-		String email1 = "juanpe1997@hotmail.com";
-		String email2 = "juanpe1997@gmail.com";
+		
+		//Sustituir email1, email2 y los add de la lista de correos por TODOS los correos newsletter de la BD.
 
 		int numeroPuerto = 7777;
 
 		// Almacena todos los correos en una lista
-		List<String> listaCorreos = new ArrayList<String>();
+		List<Newsletter> listaCorreos = repositorioNewsletter.findAllByOrderByIdAsc();
 
-		// Correos provisionales para hacer pruebas
-		listaCorreos.add(email1);
-		listaCorreos.add(email2);
 
 		try {
 			Socket socket = new Socket(InetAddress.getLocalHost(), numeroPuerto);
@@ -99,7 +99,7 @@ public class controladorEscribirNoticia {
 				if (i == 0)
 					pw.println(linkNoticia);
 				else
-					pw.println(listaCorreos.get(i - 1));
+					pw.println(listaCorreos.get(i - 1).getEmail());
 			}
 
 			br.close();
