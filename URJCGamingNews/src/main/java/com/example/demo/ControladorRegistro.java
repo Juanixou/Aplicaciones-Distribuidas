@@ -31,7 +31,7 @@ public class ControladorRegistro {
 		model.addAttribute("psw_repeat", psw_repeat);
 		if (psw.equals(psw_repeat)) {
 			model.addAttribute("psw_confirmation", "Si");
-			User newUser = new User(uname, psw,email);
+			User newUser = new User(uname, psw,email,"ADMIN");
 			users.save(newUser);
 					
 		}

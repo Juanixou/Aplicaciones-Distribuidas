@@ -33,9 +33,8 @@ public class ControladorLogin {
 
 		model.addAttribute("uname", uname);
 		model.addAttribute("psw", psw);
-		
-		
-		
+		model.addAttribute("hayUsuario", "Nosesae");
+		/*
 		List<User> listaUsuarios = users.findByUsuario(uname);
 		User usuario = listaUsuarios.get(0);
 		
@@ -49,7 +48,7 @@ public class ControladorLogin {
 			model.addAttribute("hayUsuario", "NO");
 		}
 		}
-
+		 */
 		return "checklogin";
 	}
 }

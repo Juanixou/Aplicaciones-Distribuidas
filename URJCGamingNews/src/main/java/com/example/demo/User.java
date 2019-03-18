@@ -1,9 +1,17 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
@@ -15,12 +23,26 @@ public class User {
 	private String password;
 	private String email;
 	
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
+	
 	protected User() {}
 	
-	public User(String usuario, String password, String email) {
+	public User(String usuario, String password, String email, String... roles) {
+		System.out.println("Inscrito usuario");
 		this.usuario = usuario;
-		this.password = password;
 		this.setEmail(email);
+		this.password = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
+
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 	public long getId() {

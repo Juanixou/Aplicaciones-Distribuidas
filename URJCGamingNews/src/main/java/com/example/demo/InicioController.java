@@ -26,7 +26,7 @@ public class InicioController {
 	private ArticuloRepository repositorioArticulos;
 
 	
-	@GetMapping("")
+	@GetMapping("/")
 	 public String greeting(Model model) {
 		db.InsertarArticulo();		
 
