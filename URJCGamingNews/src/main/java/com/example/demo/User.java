@@ -29,7 +29,6 @@ public class User {
 	protected User() {}
 	
 	public User(String usuario, String password, String email, String... roles) {
-		System.out.println("Inscrito usuario");
 		this.usuario = usuario;
 		this.setEmail(email);
 		this.password = new BCryptPasswordEncoder().encode(password);

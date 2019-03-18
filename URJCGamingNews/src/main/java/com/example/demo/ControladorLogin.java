@@ -2,6 +2,8 @@ package com.example.demo;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,7 @@ public class ControladorLogin {
 	
 	
 	 @Autowired
-	 private  UserRepository users;
+	 private  UserRepository repositorioUser;
 	
 	
 	/*
@@ -29,26 +31,16 @@ public class ControladorLogin {
 	 * Devuelve la informacion obtenida del registro
 	 */
 	@PostMapping("/checklogin")
-	public String checkLogin(Model model, @RequestParam String uname, @RequestParam String psw) {
+	public String checkLogin(Model model, @RequestParam String uname, @RequestParam String psw, HttpServletRequest request) {
 
-		model.addAttribute("uname", uname);
-		model.addAttribute("psw", psw);
+
 		model.addAttribute("hayUsuario", "Nosesae");
-		/*
-		List<User> listaUsuarios = users.findByUsuario(uname);
-		User usuario = listaUsuarios.get(0);
 		
-		if(usuario != null) {
-		String pass = usuario.getPassword();
-		
-		if(pass.equals(psw)) {
-			model.addAttribute("hayUsuario", "Si");
-		}
-		else {
-			model.addAttribute("hayUsuario", "NO");
-		}
-		}
-		 */
+		List<User> listauser = repositorioUser.findByUsuario(request.getUserPrincipal().getName());
+    	
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	model.addAttribute("uname", listauser.get(0).getUsuario());
+
 		return "checklogin";
 	}
 }

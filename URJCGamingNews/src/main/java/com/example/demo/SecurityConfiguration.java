@@ -24,17 +24,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/evento").permitAll();
 		http.authorizeRequests().antMatchers("/eventos").permitAll();
 		http.authorizeRequests().antMatchers("/noticia").permitAll();
-		http.authorizeRequests().antMatchers("/checklogin").permitAll();
+		//http.authorizeRequests().antMatchers("/checklogin").permitAll();
 		
 		//URLs privadas
 		//http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ROLE_ADMIN");
+		http.authorizeRequests().antMatchers("/checklogin").hasAnyRole("ROLE_ADMIN");
 		
 		//Login
 		 http.formLogin().loginPage("/login");
 		 http.formLogin().usernameParameter("uname");
 		 http.formLogin().passwordParameter("psw");
-		 http.formLogin().defaultSuccessUrl("/escribirNoticia");
+		 http.formLogin().defaultSuccessUrl("/checklogin");
 		 http.formLogin().failureUrl("/login");
 
 
@@ -49,7 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-	    web.ignoring().antMatchers("/resources/**");
+	    //web.ignoring().antMatchers("/resources/**");
 	}
 	
 }
