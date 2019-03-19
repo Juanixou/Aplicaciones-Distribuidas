@@ -2,12 +2,15 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -28,17 +31,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		//URLs privadas
 		//http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ROLE_ADMIN");
-		http.authorizeRequests().antMatchers("/checklogin").hasAnyRole("ROLE_ADMIN");
+		http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/checklogin").hasAnyRole("USER");
 		
 		//Login
 		 http.formLogin().loginPage("/login");
+		 http.formLogin().loginProcessingUrl("/checklogin");
 		 http.formLogin().usernameParameter("uname");
 		 http.formLogin().passwordParameter("psw");
-		 http.formLogin().defaultSuccessUrl("/checklogin");
+		 http.formLogin().defaultSuccessUrl("/");
 		 http.formLogin().failureUrl("/login");
 
-
+		 http.csrf().disable();
 
 	}
 	

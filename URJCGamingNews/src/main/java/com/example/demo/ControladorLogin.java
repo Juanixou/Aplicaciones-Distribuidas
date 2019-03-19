@@ -36,11 +36,14 @@ public class ControladorLogin {
 
 		model.addAttribute("hayUsuario", "Nosesae");
 		
-		List<User> listauser = repositorioUser.findByUsuario(request.getUserPrincipal().getName());
+		//List<User> listauser = repositorioUser.findByUsuario(request.getUserPrincipal().getName());
     	
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	model.addAttribute("uname", listauser.get(0).getUsuario());
+    	//model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	//model.addAttribute("uname", listauser.get(0).getUsuario());
 
+		model.addAttribute("admin","ADMIIN");
+		model.addAttribute("uname","NAME");
+		
 		return "checklogin";
 	}
 }
