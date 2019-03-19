@@ -28,7 +28,7 @@ public class InicioController {
 	
 	@GetMapping("/")
 	 public String greeting(Model model) {
-		db.InsertarArticulo();		
+		//db.InsertarArticulo();		
 
 		List<Articulo> listaArticulosSlider = repositorioArticulos.findFirst3ByOrderByFechaDesc();
 		List<Articulo> listaArticulos = repositorioArticulos.findAllByOrderByFechaDesc();
