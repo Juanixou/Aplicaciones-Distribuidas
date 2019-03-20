@@ -113,53 +113,12 @@ Los usuarios registrados tendrán acceso a la edición de artículos, de forma q
   
 
 ## Integrantes del equipo
-
-  
-
-  
-
-  
-
-|Nombre |Apellidos |Correo |Cuenta Github
-
-  
-
-  
-
-  
-
+|Nombre     |Apellidos       |Correo                    |Cuenta Github
 |-----------|----------------|--------------------------|---------------|
-
-  
-
-  
-
-  
-
-|Juan Daniel|Silva Mora |[jd.silva@alumnos.urjc.es](mailto:jd.silva@alumnos.urjc.es) |[juanixou](https://github.com/juanixou)
-
-  
-
-  
-
-  
-
+|Juan Daniel|Silva Mora      |[jd.silva@alumnos.urjc.es](mailto:jd.silva@alumnos.urjc.es)  |[juanixou](https://github.com/juanixou)
 |Angel Luis |Serrano González|[al.serranog@alumnos.urjc.es](mailto:al.serranog@alumnos.urjc.es) |[AlSerranog](https://github.com/AlSerranog)
-
-  
-
-  
-
-  
-
 |Juan Pedro |Guirado Sánchez |[jp.guirado@alumnos.urjc.es](mailto:jp.guirado@alumnos.urjc.es) |[jpguirado](https://github.com/jpguirado)
-
   
-
-  
-
-  
-
 ## Servicio Interno
 
   
@@ -518,6 +477,8 @@ El diagrama de Base de Datos corresponiente a las clases creadas es el siguiente
 <![endif]-->
 
   
+# Fase 3: Inclusión de seguridad y servicio interno
+
 
 ## Instrucciones para ejecutar en una máquina virtual nueva con Ubuntu Server 18.04.2
 
@@ -662,3 +623,10 @@ Cada vez que se escriba una noticia nueva en la aplicación, esta se encargará 
 A la hora de enviar los datos por la red, la aplicación escribirá una primera línea en el PrintWriter asociado al OutputStream del socket encargado de enviar los datos. Esta primera línea contendrá el link de la noticia que se acaba de publicar. A continuación, escribirá de la misma forma una línea por cada uno de los emails a los que se enviará la newsletter.
 
 Por otro lado, el servidor una vez reciba la petición se pondrá a leer líneas hasta que el buffer se encuentre vacío. De la misma forma que en el cliente, almacenará en un string el link de la noticia y todos los emails en una lista de string. Una vez recibidos todos los datos, se pondra a enviar los correos a cada uno de los suscritos a la newsletter, mediante la API JavaMail , por último, se pondrá otra vez a la espera de peticiones.
+
+## Diagrama de Navegación
+
+El diagrama de navegación de nuestra aplicación se ha actualizado de la siguiente forma:
+
+
+![DiagramaNavegacion2](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaNavegacionFase3.png?raw=true)

@@ -104,43 +104,60 @@
 
 </script>
 <body>
-
-<<form action="/checkNew" method='post'>
-    <div class="container">
-        <h1>Escribir Noticia</h1>
-        <hr>
-        <label for="uname"><b>Autor</b></label>
-        <input type="text" placeholder="Introduzca nombre del autor" name="uname" required>
-
-        <label for="Titulo"><b>Titulo</b></label>
-        <input type="text" placeholder="Introduzca titulo" name="titulo" required>
-
-        <label for="descripcion"><b>Descripción</b></label>
-        <input type="text" placeholder="Introduzca descripción" name="descripcion" required>
-
-        <label for="categoria"><b>Seleccionar categoria/as de la noticia</b></label>
-        <br>
-        <input type="checkbox" name="categoria" value=1> PC<br>
-        <input type="checkbox" name="categoria" value=2 > PlayStation<br>
-        <input type="checkbox" name="categoria" value=3 > Xbox<br>
-        <input type="checkbox" name="categoria" value=4 > Nintendo<br>
-
-        <hr>
-        <br>
-        <label for="subirImagen"><b>Subir imagen</b></label>
-        <br>
-        <input type="file" id="imageLoader" name="subirImagen"/>
-        <canvas id="imageCanvas"></canvas>
-        <br>
-        <label for="textoNoticia"><b>Texto noticia</b></label>
-        <br>
-        <textarea name="textoNoticia"></textarea>
-
-
-        <button type="submit" class="registerbtn">Enviar noticia</button>
+	<script src="layout/scripts/jquery.min.js"></script>
+	
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <div class="fl_left">
+      </div>
+      <div class="fl_right">
+        <ul>
+          <li><a href="/"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="/">HOME</a></li>
+        </ul>
+      </div>
+      <!-- ################################################################################################ -->
     </div>
+  </div>
 
-</form>
+
+	<form action="/checkNew" method='post'>
+	    <div class="container">
+	        <h1>Escribir Noticia</h1>
+	        <hr>
+	        <label for="uname"><b>Autor</b></label>
+	        <input type="text" placeholder="Introduzca nombre del autor" name="uname" required>
+	
+	        <label for="Titulo"><b>Titulo</b></label>
+	        <input type="text" placeholder="Introduzca titulo" name="titulo" required>
+	
+	        <label for="descripcion"><b>Descripción</b></label>
+	        <input type="text" placeholder="Introduzca descripción" name="descripcion" required>
+	
+	        <label for="categoria"><b>Seleccionar categoria/as de la noticia</b></label>
+	        <br>
+	        <input type="checkbox" name="categoria" value=1> PC<br>
+	        <input type="checkbox" name="categoria" value=2 > PlayStation<br>
+	        <input type="checkbox" name="categoria" value=3 > Xbox<br>
+	        <input type="checkbox" name="categoria" value=4 > Nintendo<br>
+	
+	        <hr>
+	        <br>
+	        <label for="subirImagen"><b>Subir imagen</b></label>
+	        <br>
+	        <input type="file" id="imageLoader" name="subirImagen"/>
+	        <canvas id="imageCanvas"></canvas>
+	        <br>
+	        <label for="textoNoticia"><b>Texto noticia</b></label>
+	        <br>
+	        <textarea name="textoNoticia"></textarea>
+	
+	
+	        <button type="submit" class="registerbtn">Enviar noticia</button>
+	    </div>
+	
+	</form>
 
 
 

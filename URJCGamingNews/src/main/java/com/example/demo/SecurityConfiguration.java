@@ -22,16 +22,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		//URLs publicas
 		http.authorizeRequests().antMatchers("/").permitAll();
 		http.authorizeRequests().antMatchers("/login").permitAll();
+		http.authorizeRequests().antMatchers("/logout").permitAll();
 		http.authorizeRequests().antMatchers("/categoria").permitAll();
 		http.authorizeRequests().antMatchers("/categorias").permitAll();
 		http.authorizeRequests().antMatchers("/evento").permitAll();
 		http.authorizeRequests().antMatchers("/eventos").permitAll();
 		http.authorizeRequests().antMatchers("/noticia").permitAll();
-		//http.authorizeRequests().antMatchers("/checklogin").permitAll();
+		http.authorizeRequests().antMatchers("/newsletter").permitAll();
 		
 		//URLs privadas
-		//http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ADMIN");
+
 		http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/checkNew").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/checklogin").hasAnyRole("USER");
 		
 		//Login
@@ -41,8 +43,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.formLogin().passwordParameter("psw");
 		 http.formLogin().defaultSuccessUrl("/");
 		 http.formLogin().failureUrl("/login");
+		 
+		 //Logout
+		 http.logout().logoutUrl("/logout");
+		 http.logout().logoutSuccessUrl("/");
 
-		 http.csrf().disable();
+		 //http.csrf().disable();
 
 	}
 	

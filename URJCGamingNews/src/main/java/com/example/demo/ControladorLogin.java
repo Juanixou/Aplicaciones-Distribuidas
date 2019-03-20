@@ -2,9 +2,11 @@ package com.example.demo;
 
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,9 @@ public class ControladorLogin {
 	 * Devuelve el formulario de login 
 	 */
 	@GetMapping("/login")
-	public String login(Model model) {
+	public String login(Model model, HttpServletRequest request) {
+		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+		model.addAttribute("token", token.getToken());
 		return "login";
 	}
 	
@@ -46,4 +50,16 @@ public class ControladorLogin {
 		
 		return "checklogin";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(Model model,HttpServletRequest request) {
+		try {
+			request.logout();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "logout";
+	}
+	
 }

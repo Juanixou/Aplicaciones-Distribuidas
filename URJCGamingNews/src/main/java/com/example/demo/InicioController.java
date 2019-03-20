@@ -10,6 +10,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,7 @@ public class InicioController {
 
 	
 	@GetMapping("/")
-	 public String greeting(Model model) {
+	 public String greeting(Model model,HttpServletRequest request) {
 		//db.InsertarArticulo();		
 
 		List<Articulo> listaArticulosSlider = repositorioArticulos.findFirst3ByOrderByFechaDesc();
@@ -40,6 +42,16 @@ public class InicioController {
 		/*Gestión de la lista de noticias publicadas*/
 		model.addAttribute("listaTotalArticulos",listaArticulos);
 		model.addAttribute("resources", "/resources");
+		
+		if(request.isUserInRole("ADMIN")) {
+			model.addAttribute("hidden", "visible");
+			model.addAttribute("loginURL", "/logout");
+			model.addAttribute("loginName", "Logout");
+		}else {
+			model.addAttribute("hidden", "hidden");
+			model.addAttribute("loginURL", "/login");
+			model.addAttribute("loginName", "Login");
+		}
 
 		return "inicio";
 	 }
