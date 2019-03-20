@@ -92,16 +92,10 @@
             <input type="password" placeholder="Introduzca contraseña" name="psw" required>
 
             <button type="submit">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Recuérdame
-            </label>
-            <span class = "psw">Registrate haciendo click <a href="/registrar">aquí</a></span>
-
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="goBack()" class="cancelbtn">Cancelar</button>
-            <span class="psw">¿No recuerdas tu <a href="">contraseña?</a></span>
         </div>
 
         <script>
@@ -110,7 +104,7 @@
             }
         </script>
 
-
+	<input type="hidden" name="_csrf" value="{{token}}"/>
     </form>
 
 </body>
