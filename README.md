@@ -629,4 +629,4 @@ Por otro lado, el servidor una vez reciba la petición se pondrá a leer líneas
 El diagrama de navegación de nuestra aplicación se ha actualizado de la siguiente forma:
 
 
-![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaNavegacion - Fase 3.png?raw=true)
+![DiagramaNavegacion](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaNavegacionFase 3.png?raw=true)
