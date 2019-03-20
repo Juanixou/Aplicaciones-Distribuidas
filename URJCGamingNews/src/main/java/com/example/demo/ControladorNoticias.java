@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,15 @@ public class ControladorNoticias {
 	private CategoriaRepository repositorioCategoria;
 	
 	@GetMapping("/noticia")
-	public String noticia(Model model, @RequestParam String title) {
+	public String noticia(Model model, @RequestParam String title,HttpServletRequest request) {
+		
+		if(request.isUserInRole("ADMIN")) {
+			model.addAttribute("loginURL", "/logout");
+			model.addAttribute("loginName", "Logout");
+		}else {
+			model.addAttribute("loginURL", "/login");
+			model.addAttribute("loginName", "Login");
+		}
 
 		String nuevoTitulo = title.replace('-',' ');
 		List<Articulo> listaArticulos = repositorioArticulos.findByTitulo(nuevoTitulo);
@@ -86,7 +96,15 @@ public class ControladorNoticias {
 	 * Devuelve la pagina de las categorias
 	 */
 	@GetMapping("/categorias")
-	public String categorias (Model model) {
+	public String categorias (Model model,HttpServletRequest request) {
+		
+		if(request.isUserInRole("ADMIN")) {
+			model.addAttribute("loginURL", "/logout");
+			model.addAttribute("loginName", "Logout");
+		}else {
+			model.addAttribute("loginURL", "/login");
+			model.addAttribute("loginName", "Login");
+		}
 		
 		return "categorias";
 	}
@@ -96,7 +114,15 @@ public class ControladorNoticias {
 	 * Devuelve la pagina de las categoria en concreto
 	 */
 	@GetMapping("/categoria")
-	public String categoria (Model model, @RequestParam String[] categoria) {
+	public String categoria (Model model, @RequestParam String[] categoria,HttpServletRequest request) {
+		
+		if(request.isUserInRole("ADMIN")) {
+			model.addAttribute("loginURL", "/logout");
+			model.addAttribute("loginName", "Logout");
+		}else {
+			model.addAttribute("loginURL", "/login");
+			model.addAttribute("loginName", "Login");
+		}
 		String categ = Arrays.toString(categoria);
 		categ = categ.substring(1,categ.length()-1);
 		System.out.println(categ);
@@ -134,7 +160,15 @@ public class ControladorNoticias {
 	 * Devuelve la pagina de los distintos tipos de eventos
 	 */
 	@GetMapping("/eventos")
-	public String eventos (Model model) {
+	public String eventos (Model model,HttpServletRequest request) {
+		
+		if(request.isUserInRole("ADMIN")) {
+			model.addAttribute("loginURL", "/logout");
+			model.addAttribute("loginName", "Logout");
+		}else {
+			model.addAttribute("loginURL", "/login");
+			model.addAttribute("loginName", "Login");
+		}
 		
 		return "eventos";
 	}
@@ -144,7 +178,15 @@ public class ControladorNoticias {
 	 * Devuelve la pagina de los eventos en concreto
 	 */
 	@GetMapping("/evento")
-	public String evento (Model model, @RequestParam String evento) {
+	public String evento (Model model, @RequestParam String evento,HttpServletRequest request) {
+		
+		if(request.isUserInRole("ADMIN")) {
+			model.addAttribute("loginURL", "/logout");
+			model.addAttribute("loginName", "Logout");
+		}else {
+			model.addAttribute("loginURL", "/login");
+			model.addAttribute("loginName", "Login");
+		}
 		
 		if(evento.equals("videojuegos")) {//Evento de videojuegos
 			model.addAttribute("ruta_fondo", "('../images/fondos/eventos/fondo_videojuegos.jpg')");

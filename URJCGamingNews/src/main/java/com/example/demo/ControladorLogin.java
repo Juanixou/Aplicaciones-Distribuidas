@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,16 @@ public class ControladorLogin {
 		
 		return "checklogin";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(Model model,HttpServletRequest request) {
+		try {
+			request.logout();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "logout";
+	}
+	
 }

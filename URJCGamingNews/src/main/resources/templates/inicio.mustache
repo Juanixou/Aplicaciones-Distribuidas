@@ -21,7 +21,7 @@
       <div class="fl_right">
         <ul>
           <li><a href="/"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="/login">Login</a></li>
+          <li><a href="{{loginURL}}">{{loginName}}</a></li>
         </ul>
       </div>
       <!-- ################################################################################################ -->
@@ -52,7 +52,7 @@
         </li>
         <li><a href="/newsletter">Subscripción</a></li>
         <li><a href="/email">Mandar e-mail</a></li>
-        <li><a href="/escribirNoticia">Escribir Noticia</a></li>
+        <li style="visibility : {{hidden}}"><a href="/escribirNoticia">Escribir Noticia</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </nav>
