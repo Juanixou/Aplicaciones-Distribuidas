@@ -426,7 +426,7 @@ El diagrama de Base de Datos corresponiente a las clases creadas es el siguiente
 
   
 
-- Una vez configurado podemos conectarnos a nuestro Ubuntu Server ejecutando en la consola de nuestra maquina propia el comando ssh nombreusuario@ip -p1337. En nombreusuario tendremos que poner el **nombre de usuario** que establecimos en el paso 1, **no** el del servidor. Por defecto sería nombreusuario@127.0.0.1 -p1337. Nos pedirá la contraseña e introduciremos la que se estableció en el paso 1 para el usuario.
+- Una vez configurado podemos conectarnos a nuestro Ubuntu Server ejecutando en la consola de nuestra maquina propia el comando `ssh nombreusuario@ip -p1337` . En nombreusuario tendremos que poner el **nombre de usuario** que establecimos en el paso 1, **no** el del servidor. Por defecto sería nombreusuario@127.0.0.1 -p1337. Nos pedirá la contraseña e introduciremos la que se estableció en el paso 1 para el usuario.
 
   
 
