@@ -520,7 +520,7 @@ El diagrama de Base de Datos corresponiente a las clases creadas es el siguiente
 - Una vez ambas aplicaciones arranquen correctamente, podremos acceder a la aplicación desde el navegador de nuestra maquina propia ya que hemos comunicado los puertos anteriormente.
 ## Interfaz entre el servicio interno y la aplicación web
 
-Para la comunicación entre nuestra aplicación web y el servicio interno hemos empleado **Sockets** de Java, en concreto las clases **ServerSocket** para el servicio interno y **Socket** para la aplicación web.
+Para la comunicación entre nuestra aplicación web y el servicio interno hemos empleado **Sockets** de Java, en concreto las clases **ServerSocket** para el servicio interno y **Socket** para la aplicación web. Hemos decidido usarlos debido a su facilidad de implementacion y al haber trabajado varias veces con ellos.
 
 ### Mensajes que se intercambian, el orden de los mismos y donde se dejan los datos
 
@@ -530,6 +530,7 @@ A la hora de enviar los datos por la red, la aplicación escribirá una primera 
 
 Por otro lado, el servidor una vez reciba la petición se pondrá a leer líneas hasta que el buffer se encuentre vacío. De la misma forma que en el cliente, almacenará en un string el link de la noticia y todos los emails en una lista de string. Una vez recibidos todos los datos, se pondra a enviar los correos a cada uno de los suscritos a la newsletter, mediante la API JavaMail , por último, se pondrá otra vez a la espera de peticiones.
 
+Las peticiones son procesadas de forma concurrente siendo ejecutadas por un pool de threads. Esto nos permite que nuestro servicio interno procese varias peticiones de forma simultanea.
 ## Diagrama de Navegación
 
 El diagrama de navegación de nuestra aplicación se ha actualizado de la siguiente forma:
