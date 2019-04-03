@@ -1,0 +1,48 @@
+PASOS PARA HACER EL DOCKER
+
+1: Crear un archivo docker que contenga esto:
+
+Estando nosotros donde estan nuestros jar
+
+FROM openjdk:8-jre
+COPY URJCGamingNews-0.0.1-SNAPSHOT.jar /usr/app/
+WORKDIR /usr/app
+CMD [ "java", "-jar", "URJCGamingNews-0.0.1-SNAPSHOT.jar" ]
+
+
+Ejecutamos esto para buildear el fichero docker
+sudo docker build -f java-webapp -t "simple_flask:dockerfile" /home/jpguirado
+
+El simple
+
+sudo docker run -p 5000:8443 simple_flask:dockerfile
+
+
+Configurar la mysql:
+https://hub.docker.com/r/mysql/mysql-server
+
+
+
+
+Borra todos los contenedores
+sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker system prune
+
+sudo docker pull mysql/mysql-server
+sudo docker run --name=mysql1 -d -p 3306:3306 mysql/mysql-server
+
+Esto te generara la contraseña de root del mysql
+sudo docker logs mysql1 2>&1 | grep GENERATED 
+Con esto accedes
+sudo docker exec -it mysql1 mysql -uroot -p
+
+
+
+    create database local; (Creamos la base de datos con nombre local, tal cual está en el Apliccation.properties de nuestro proyecto)
+
+    create user 'root'@'%' identified by 'root'; (Creamos el usuario root con contraseña root
+
+    grant all on local.* to 'root'@'%'; (Damos acceso total a nuestra base de datos "local" al usuario root)
+
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'; (Comando necesario para su correcto funcionamiento)
+
