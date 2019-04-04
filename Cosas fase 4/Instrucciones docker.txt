@@ -2,6 +2,9 @@ PASOS PARA HACER EL DOCKER
 
 1: Crear un archivo docker que contenga esto:
 
+
+----------------------------------------------------------------------- WEB JAVA -------------------------------------
+
 Estando nosotros donde estan nuestros jar
 
 FROM openjdk:8-jre
@@ -10,13 +13,29 @@ WORKDIR /usr/app
 CMD [ "java", "-jar", "URJCGamingNews-0.0.1-SNAPSHOT.jar" ]
 
 
+172.17.0.2
+SPRING_DATASOURCE_URL
+spring.datasource.url=jdbc:mysql://localhost:3306/local?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+spring.datasource.url=jdbc:mysql://172.17.0.2:3306/local?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+
+
 Ejecutamos esto para buildear el fichero docker
 sudo docker build -f java-webapp -t "simple_flask:dockerfile" /home/jpguirado
+sudo docker build -f java-webapp -t "web1" /home/jpguirado
 
 El simple
 
-sudo docker run -p 5000:8443 simple_flask:dockerfile 
+sudo docker run -p 8443:8443 web1 --SPRING_DATASOURCE_URL==jdbc:mysql://172.17.0.2:3306/local?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC 
 
+-------------------------------------------------------------------- SERV INTERNO --------------------------------------------
+
+FROM openjdk:8-jre
+COPY ServicioInternoMaven-0.0.1-SNAPSHOT.jar /usr/app/
+WORKDIR /usr/app
+CMD [ "java", "-jar", "ServicioInternoMaven-0.0.1-SNAPSHOT.jar" ]
+
+sudo docker build -f java-servinter-dockerfile -t "serviciointerno" /home/jpguirado
+sudo docker run -p 7777:7777 serviciointerno
 
 Configurar la mysql:
 https://hub.docker.com/r/mysql/mysql-server
@@ -30,6 +49,7 @@ sudo docker system prune
 
 sudo docker pull mysql/mysql-server
 sudo docker run --name=mysql1 -d -p 3306:3306 mysql/mysql-server
+sudo docker run --name=mysql1 -d mysql/mysql-server
 
 Esto te generara la contraseña de root del mysql
 sudo docker logs mysql1 2>&1 | grep GENERATED 
@@ -60,7 +80,7 @@ vim i para inertar luego escape y :wq
 
 
 
-172.17.0.2
-SPRING_DATASOURCE_URL
-spring.datasource.url=jdbc:mysql://localhost:3306/local?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-spring.datasource.url=jdbc:mysql://172.17.0.2:3306/local?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+------------------------------------------------ BALANCEADOR ---------------------------------------
+https://hub.docker.com/_/haproxy
+
+sudo docker build -f balanceador-dockerfile -t balanceador /home/jpguirado
