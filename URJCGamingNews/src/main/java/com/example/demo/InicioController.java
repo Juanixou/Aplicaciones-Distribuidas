@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,12 @@ public class InicioController {
 	@Autowired
 	private ArticuloRepository repositorioArticulos;
 
+	
+	
+	@PostConstruct
+	public void insertar() {
+		db.InsertarArticulo();
+	}
 	
 	@GetMapping("/")
 	 public String greeting(Model model,HttpServletRequest request) {
