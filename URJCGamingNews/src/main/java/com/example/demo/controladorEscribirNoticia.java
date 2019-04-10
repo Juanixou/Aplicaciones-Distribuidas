@@ -92,7 +92,7 @@ public class controladorEscribirNoticia {
 
 
 		try {
-			Socket socket = new Socket(InetAddress.getLocalHost(), numeroPuerto);
+			Socket socket = new Socket("serviciointerno", numeroPuerto);
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
 			PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
