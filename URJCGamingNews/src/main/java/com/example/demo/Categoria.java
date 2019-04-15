@@ -51,5 +51,41 @@ public class Categoria {
 	public String toString() {
 		return "Categoria [id=" + id + ", categoria=" + categoria + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result + ((employer == null) ? 0 : employer.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Categoria other = (Categoria) obj;
+		if (categoria == null) {
+			if (other.categoria != null)
+				return false;
+		} else if (!categoria.equals(other.categoria))
+			return false;
+		if (employer == null) {
+			if (other.employer != null)
+				return false;
+		} else if (!employer.equals(other.employer))
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
+	
 	
 }

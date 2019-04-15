@@ -76,4 +76,53 @@ public class Comentario {
 		return "Comentario [id=" + id + ", user=" + user + ", comentario=" + comentario + ", fecha=" + fecha
 				+ ", articulo=" + articulo + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((articulo == null) ? 0 : articulo.hashCode());
+		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Comentario other = (Comentario) obj;
+		if (articulo == null) {
+			if (other.articulo != null)
+				return false;
+		} else if (!articulo.equals(other.articulo))
+			return false;
+		if (comentario == null) {
+			if (other.comentario != null)
+				return false;
+		} else if (!comentario.equals(other.comentario))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (id != other.id)
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
+	}
+	
+	
+	
 }

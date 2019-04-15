@@ -23,6 +23,8 @@ public class DatabaseController{
 	 
 	 public void InsertarArticulo(){
 
+		 System.out.println("Introduciendo datos...");
+		 
 		 LocalDate localDate = LocalDate.now();
 		 
 		 Articulo articulo = new Articulo("UNCHARTED 4","LLega el tan esperado Uncharted 4","Take-Two supera sus expectativas de ingresos durante este tercer trimestre gracias al título de Rockstar; el juego previo vendió 15 millones. Take-Two Interactive ha publicado los resultados financieros de este pasado trimestre finalizado el 31 de diciembre."
