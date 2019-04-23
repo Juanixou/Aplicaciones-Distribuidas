@@ -2,7 +2,7 @@
 
 A continuación, mostramos el enlace al video correspondiente que explica la funcionalidad de la web.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Zjr_xIKH7T0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/embed/Zjr_xIKH7T0
 
 
 Página web de videojuegos en la cual se encuentran diversos artículos escritos por los redactores con información sobre las novedades en diversas videoconsolas tales como videojuegos, actualizaciones etc.
