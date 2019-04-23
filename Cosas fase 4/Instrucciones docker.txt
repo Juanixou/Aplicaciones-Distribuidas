@@ -121,7 +121,7 @@ grant all on local.* to 'root'@'%'; (Damos acceso total a nuestra base de datos 
 
 3º SERVICIO INTERNO --------------------------------
 sudo docker build -f java-webapp-dockerfile -t "web1" /home/jpguirado
-sudo docker run -p 7777:7777 --name=serviciointerno --network=urjcgaming serviciointerno
+sudo docker run -p 7777:7777 -p 587:587 --name=serviciointerno --network=urjcgaming serviciointerno
 4º PAGINA WEB ---------------------------------------------
 sudo docker build -f java-webapp-dockerfile -t "web" /home/jpguirado
 sudo docker run -p 9000:8080 --name=web1 --network=urjcgaming web
