@@ -1,3 +1,12 @@
+## Video de Muestra
+
+A continuación, mostramos el enlace al video correspondiente que explica la funcionalidad de la web.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Zjr_xIKH7T0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+Página web de videojuegos en la cual se encuentran diversos artículos escritos por los redactores con información sobre las novedades en diversas videoconsolas tales como videojuegos, actualizaciones etc.
+
 ## Descripción
 
 
@@ -553,4 +562,10 @@ Con los cambios incluidos en esta fase, el diagrama de clases con interfaces inc
 Con los cambios incluidos en esta fase, el diagrama apenas es modificado, únicamente por la inclusión de una clase controladora de la caché:
 
 ![DiagramaClases4](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaClasesFase4.png?raw=true) 
+
+## Diagrama de Componentes de Aplicación
+
+A continuación, se muestra el diagrama de los componentes de la aplicación y la comunicación entre ellos:
+
+![DiagramaInfraestructura4](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaInfraestructura.png?raw=true) 
 

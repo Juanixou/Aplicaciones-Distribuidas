@@ -34,14 +34,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests().antMatchers("/escribirNoticia").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/checkNew").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "https://127.0.0.1:8443/checklogin").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/checklogin").hasAnyRole("USER");
 		
 		//Login
 		 http.formLogin().loginPage("/login");
-		 http.formLogin().loginProcessingUrl("https://127.0.0.1:8443/checklogin");
+		 http.formLogin().loginProcessingUrl("/checklogin");
 		 http.formLogin().usernameParameter("uname");
 		 http.formLogin().passwordParameter("psw");
-		 http.formLogin().defaultSuccessUrl("/");
+		 http.formLogin().defaultSuccessUrl("https://127.0.0.1:8443/");
 		 http.formLogin().failureUrl("/login");
 		 
 		 //Logout
