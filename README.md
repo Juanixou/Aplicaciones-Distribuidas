@@ -542,5 +542,15 @@ El diagrama de navegación de nuestra aplicación se ha actualizado de la siguie
 
 Con los cambios incluidos en esta fase, el diagrama de clases con interfaces incluidas quedaría así:
 
-![DiagramaClases2](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaClasesFase3.png?raw=true)
+![DiagramaClases2](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaClasesFase3.png?raw=true) 
+
+
+# Fase 4: Incluir Tolerancia a Fallos
+
+
+## Diagrama de Clases
+
+Con los cambios incluidos en esta fase, el diagrama apenas es modificado, únicamente por la inclusión de una clase controladora de la caché:
+
+![DiagramaClases4](https://github.com/Juanixou/URJCGamingNews/blob/master/FotosMarkDown/DiagramaClasesFase4.png?raw=true) 
 
